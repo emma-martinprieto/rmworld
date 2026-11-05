@@ -1,0 +1,56 @@
+/* stylelint-disable selector-class-pattern, media-feature-range-notation, property-no-vendor-prefix, no-descending-specificity, no-duplicate-selectors, color-hex-length, color-function-notation, color-function-alias-notation, alpha-value-notation, font-family-name-quotes, property-no-deprecated, custom-property-empty-line-before, declaration-empty-line-before, rule-empty-line-before, comment-empty-line-before, at-rule-empty-line-before, value-keyword-case, declaration-block-no-redundant-longhand-properties, shorthand-property-no-redundant-values, keyframes-name-pattern, length-zero-no-unit, number-max-precision, comment-whitespace-inside, lightness-notation, hue-degree-notation, declaration-property-value-no-unknown, keyframe-block-no-duplicate-selectors, declaration-block-single-line-max-declarations, import-notation, no-empty-source, keyframe-selector-notation, function-url-quotes */
+/* Literal port of the prototype CSS (block-style-spec Appendix A): do not reorder or "fix". */
+/* L3028 */ .barra {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: var(--z-barra);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  border-top: var(--border-width) solid var(--color-line);
+  background-color: color-mix(in srgb, var(--color-papel) 92%, transparent);
+  -webkit-backdrop-filter: blur(var(--blur-cristal));
+  backdrop-filter: blur(var(--blur-cristal));
+}
+/* L3040 */ .barra__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-base) var(--spacing-sm);
+}
+/* L3047 */ .barra__figure {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  line-height: var(--lh-heading);
+}
+/* L3054 */ .barra__number {
+  color: var(--color-primary);
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--tracking-display);
+}
+/* L3061 */ .barra__label {
+  color: var(--color-text-muted);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-semibold);
+}
+/* L3067 */ .barra .btn {
+  flex: none;
+}
+/* L3072 */ .barra__cifra {
+  white-space: nowrap;
+}
+/* L3077 */ .barra[data-barra-js]:not(.is-visible) {
+  visibility: hidden;
+  transform: translateY(100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* L3083 */ .barra[data-barra-js] {
+    transition: transform var(--reveal-duration) var(--ease-out), visibility var(--reveal-duration);
+  }
+}
+@media (min-width: 768px) {
+  /* L3089 */ .barra {
+    display: none;
+  }
+}

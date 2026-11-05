@@ -1,0 +1,40 @@
+/*
+  RM Neue: the four weights delivered in the prototype ZIP, with their original
+  file names. They are OpenType/CFF despite the .ttf extension, hence
+  format('opentype').
+
+  There is no italic in the delivery: italic text is slanted by the browser.
+  The Arabic pages use Noto Kufi Arabic and never request these files.
+*/
+
+@font-face {
+  font-family: 'RM Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/rmworld/fonts/RMNeue-Regular.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'RM Neue';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/rmworld/fonts/RMNeue-SemiBold.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'RM Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/rmworld/fonts/RMNeue-Bold.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'RM Neue';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/rmworld/fonts/RMNeue-Black.ttf') format('opentype');
+}

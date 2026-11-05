@@ -1,0 +1,66 @@
+/* stylelint-disable selector-class-pattern, media-feature-range-notation, property-no-vendor-prefix, no-descending-specificity, no-duplicate-selectors, color-hex-length, color-function-notation, color-function-alias-notation, alpha-value-notation, font-family-name-quotes, property-no-deprecated, custom-property-empty-line-before, declaration-empty-line-before, rule-empty-line-before, comment-empty-line-before, at-rule-empty-line-before, value-keyword-case, declaration-block-no-redundant-longhand-properties, shorthand-property-no-redundant-values, keyframes-name-pattern, length-zero-no-unit, number-max-precision, comment-whitespace-inside, lightness-notation, hue-degree-notation, declaration-property-value-no-unknown, keyframe-block-no-duplicate-selectors, declaration-block-single-line-max-declarations, import-notation, no-empty-source, keyframe-selector-notation, function-url-quotes */
+/* Literal port of the prototype CSS (block-style-spec Appendix A): do not reorder or "fix". */
+/* L2656 */ .site-footer {
+  padding-block: var(--spacing-md) calc(var(--spacing-xl) + var(--barra-height));
+  border-top: var(--border-width) solid var(--color-line);
+  background-color: var(--color-cielo);
+  color: var(--color-text-body);
+  font-size: var(--text-caption);
+}
+@media (min-width: 768px) {
+  /* L2665 */ .site-footer {
+    padding-bottom: var(--spacing-xl);
+  }
+}
+/* L2671 */ .site-footer .tbc {
+  color: var(--color-text-muted);
+  font-size: inherit;
+}
+/* L2676 */ .site-footer__inner {
+  display: grid;
+  gap: var(--spacing-sm);
+}
+/* L2682 */ .site-footer__marcas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+/* L2689 */ .site-footer__madridistas {
+  display: block;
+  height: var(--logo-rmw-alto);
+  aspect-ratio: var(--logo-ratio);
+  background-color: var(--color-text-title);
+  -webkit-mask: url("/rmworld/images/logo-madridistas.webp") center / contain no-repeat;
+  mask: url("/rmworld/images/logo-madridistas.webp") center / contain no-repeat;
+}
+/* L2698 */ .site-footer__marca {
+  justify-self: start;
+}
+/* L2702 */ .site-footer__marca img {
+  display: block;
+  width: auto;
+  height: var(--logo-rmw-alto);
+}
+/* L2708 */ .site-footer__langs, .site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--spacing-base);
+}
+/* L2716 */ .site-footer__langs a, .site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--zona-tactil);
+}
+/* L2723 */ .site-footer__langs a {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-decoration: none;
+}
+/* L2730 */ .site-footer__langs a[aria-current="page"] {
+  color: var(--color-primary);
+}
+/* L2734 */ .site-footer__links a {
+  color: var(--color-text-title);
+}

@@ -1,0 +1,288 @@
+/* stylelint-disable selector-class-pattern, media-feature-range-notation, property-no-vendor-prefix, no-descending-specificity, no-duplicate-selectors, color-hex-length, color-function-notation, color-function-alias-notation, alpha-value-notation, font-family-name-quotes, property-no-deprecated, custom-property-empty-line-before, declaration-empty-line-before, rule-empty-line-before, comment-empty-line-before, at-rule-empty-line-before, value-keyword-case, declaration-block-no-redundant-longhand-properties, shorthand-property-no-redundant-values, keyframes-name-pattern, length-zero-no-unit, number-max-precision, comment-whitespace-inside, lightness-notation, hue-degree-notation, declaration-property-value-no-unknown, keyframe-block-no-duplicate-selectors, declaration-block-single-line-max-declarations, import-notation, no-empty-source, keyframe-selector-notation, function-url-quotes */
+/* Literal port of the prototype CSS (block-style-spec Appendix A): do not reorder or "fix". */
+/* L1239 */ .pasos-seccion {
+  padding-block: var(--spacing-md) 0;
+  background-color: var(--color-papel);
+}
+/* L1244 */ .pasos-seccion .pasos {
+  margin-top: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* L1751 */ .pasos__balon.flota {
+    animation: balon-flota var(--balon-flota-dur) ease-in-out 2 alternate;
+  }
+  /* L1759 */ .pasos__balon {
+    animation-delay: calc(var(--balon-flota-dur) / -3);
+  }
+}
+/* L2166 */ .pasos {
+  position: relative;
+  margin-top: var(--spacing-xl);
+  padding: var(--padding-card-compact);
+  border-radius: var(--radius-3xl);
+  background-color: var(--color-bg-light);
+}
+/* L2175 */ .pasos__balon {
+  position: absolute;
+  top: calc(-1 * var(--spacing-md));
+  inset-inline-end: var(--spacing-md);
+  width: var(--spacing-2xl);
+  height: auto;
+  --balon-giro: -12deg;
+  transform: rotate(var(--balon-giro));
+  filter: var(--shadow-recorte);
+  pointer-events: none;
+}
+/* L2187 */ .pasos__title {
+  color: var(--color-text-title);
+  font-size: var(--text-display-sm);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-heading);
+}
+/* L2195 */ .pasos__lead {
+  margin-top: var(--spacing-xs);
+  color: var(--color-text-subtitle);
+  font-size: var(--text-body);
+  line-height: var(--lh-small);
+}
+/* L2202 */ .pasos__camino {
+  position: relative;
+  max-width: var(--pasos-ancho);
+  margin: var(--spacing-md) auto 0;
+}
+/* L2208 */ .pasos__road {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+/* L2216 */ .pasos__road path {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+/* L2223 */ .pasos__road-edge {
+  stroke: var(--color-primary-bg);
+  stroke-width: var(--paso-road-edge);
+}
+/* L2229 */ [dir="rtl"] .pasos__road {
+  transform: scaleX(-1);
+}
+/* L2233 */ .pasos__road-lane {
+  stroke: url(#pasos-road);
+  stroke-width: var(--paso-road);
+}
+/* L2238 */ .pasos__road-stop-start {
+  stop-color: var(--color-primary-medium);
+}
+/* L2242 */ .pasos__road-stop-end {
+  stop-color: var(--color-primary);
+}
+/* L2246 */ .pasos__list {
+  position: relative;
+  display: grid;
+  grid-auto-rows: minmax(var(--spacing-3xl), 1fr);
+  counter-reset: paso;
+}
+/* L2253 */ .pasos__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  counter-increment: paso;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+}
+/* L2263 */ .pasos__item::before {
+  content: counter(paso);
+  position: absolute;
+  top: 50%;
+  inset-inline-start: calc(var(--paso-x) - var(--paso-size) / 2);
+  display: grid;
+  place-items: center;
+  width: var(--paso-size);
+  height: var(--paso-size);
+  border: var(--focus-width) solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg-light);
+  box-shadow: 0 0 0 var(--spacing-xs) color-mix(in srgb, var(--color-bg-light) 70%, transparent);
+  color: var(--color-primary);
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-black);
+  transform: translateY(-50%);
+}
+/* L2283 */ .pasos__item:last-child::before {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+/* L2288 */ .pasos__texto {
+  display: grid;
+  gap: var(--spacing-2xs);
+  padding-inline-start: calc(var(--paso-x) + var(--paso-size) / 2 + var(--spacing-sm));
+}
+/* L2295 */ .pasos__item:nth-child(even)::before {
+  inset-inline-start: calc(100% - var(--paso-x) - var(--paso-size) / 2);
+}
+/* L2299 */ .pasos__item:nth-child(even) .pasos__texto {
+  width: 100%;
+  padding-inline: 0 calc(var(--paso-x) + var(--paso-size) / 2 + var(--spacing-sm));
+  text-align: end;
+}
+/* L2305 */ .pasos__texto strong {
+  color: var(--color-text-title);
+  font-size: var(--text-body-lg);
+  line-height: var(--lh-heading);
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* L2314 */ .pasos__camino.reveal .pasos__road {
+    clip-path: inset(0 0 100% 0);
+  }
+  /* L2318 */ .pasos__camino.reveal .pasos__item {
+    opacity: 0;
+    transform: translateY(var(--spacing-sm));
+  }
+  /* L2323 */ .pasos__camino.reveal.is-visible .pasos__road {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path var(--paso-road-dur) var(--ease-out);
+  }
+  /* L2328 */ .pasos__camino.reveal.is-visible .pasos__item {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--reveal-duration) var(--ease-out), transform var(--reveal-duration) var(--ease-out);
+  }
+  /* L2334 */ .pasos__camino.is-visible .pasos__item:nth-child(2) {
+    transition-delay: calc(var(--paso-road-dur) * 0.25);
+  }
+  /* L2335 */ .pasos__camino.is-visible .pasos__item:nth-child(3) {
+    transition-delay: calc(var(--paso-road-dur) * 0.5);
+  }
+  /* L2336 */ .pasos__camino.is-visible .pasos__item:nth-child(4) {
+    transition-delay: calc(var(--paso-road-dur) * 0.75);
+  }
+}
+@media (min-width: 768px) {
+  /* L2340 */ .pasos {
+    padding: var(--padding-card-lg);
+  }
+}
+/* L2346 */ .pasos__road--web {
+  display: none;
+}
+/* L2350 */ .pasos__road-lane--h {
+  stroke: url(#pasos-road-h);
+}
+@media (min-width: 1024px) {
+  /* L2358 */ .pasos__camino {
+    max-width: none;
+  }
+  /* L2362 */ .pasos__road--movil {
+    display: none;
+  }
+  /* L2366 */ .pasos__road--web {
+    display: block;
+    inset: 0 0 auto;
+    height: var(--paso-banda);
+  }
+  /* L2374 */ .pasos__list {
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+  /* L2380 */ .pasos__item {
+    display: grid;
+    align-content: start;
+    justify-items: center;
+    padding-inline: var(--spacing-sm);
+    padding-top: calc(var(--paso-banda) + var(--spacing-sm));
+    text-align: center;
+  }
+  /* L2389 */ .pasos__item::before, .pasos__item:nth-child(even)::before {
+    top: calc(var(--paso-banda) * 0.25);
+    inset-inline-start: calc(50% - var(--paso-size) / 2);
+  }
+  /* L2395 */ .pasos__item:nth-child(even)::before {
+    top: calc(var(--paso-banda) * 0.75);
+  }
+  /* L2399 */ .pasos__texto, .pasos__item:nth-child(even) .pasos__texto {
+    width: auto;
+    padding-inline: 0;
+    text-align: center;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    /* L2408 */ .pasos__camino.reveal .pasos__road--web {
+      clip-path: inset(0 100% 0 0);
+    }
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* L2763 */ .pasos__title, .pasos__lead {
+    text-align: center;
+  }
+}
+@media (min-width: 1024px) {
+  /* L2777 */ .pasos__texto span {
+    font-size: var(--text-small);
+  }
+  /* L2943 */ .pasos__title, .pasos__lead {
+    text-align: center;
+  }
+}
+/* L2959 */ .pasos-seccion {
+  background-color: transparent;
+  background-image: none;
+}
+/* L2974 */ .pasos-seccion {
+  padding-block: var(--seccion-compacta);
+}
+/* L3016 */ .pasos {
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+/* L3696 */ .pasos__title {
+  max-width: none;
+  font-size: clamp(32px, 3.8vw, 54px);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  text-wrap: balance;
+}
+@media (max-width: 1023px) {
+  /* L3797 */ .pasos__list {
+    grid-auto-rows: minmax(150px, 1fr);
+  }
+  /* L3801 */ .pasos__item {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  /* L3806 */ .pasos__texto strong {
+    font-size: var(--text-body);
+  }
+}
+@media (min-width: 1024px) {
+  /* L3813 */ .pasos__item {
+    font-size: var(--text-body-lg);
+    line-height: 1.45;
+  }
+  /* L3818 */ .pasos__texto strong {
+    font-size: 22px;
+  }
+  /* L3822 */ .pasos__texto span {
+    font-size: var(--text-body-lg);
+  }
+  /* L3827 */ main .pasos-seccion .container {
+    max-width: calc(var(--v2-bento-ancho) + var(--layout-margin) * 2);
+  }
+  /* L3831 */ .pasos-seccion .pasos {
+    padding-inline: 0;
+  }
+}
+/* L4171 */ .pasos-seccion {
+  padding-block: var(--spacing-2xl);
+  background-color: var(--color-primary-bg);
+}
+/* L1745 */ @keyframes balon-flota {
+  from { transform: rotate(var(--balon-giro, 0deg)) translateY(0); }
+  to   { transform: rotate(calc(var(--balon-giro, 0deg) + 8deg)) translateY(calc(-1 * var(--spacing-sm))); }
+}

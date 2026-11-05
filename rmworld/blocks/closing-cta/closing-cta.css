@@ -1,0 +1,168 @@
+/* stylelint-disable selector-class-pattern, media-feature-range-notation, property-no-vendor-prefix, no-descending-specificity, no-duplicate-selectors, color-hex-length, color-function-notation, color-function-alias-notation, alpha-value-notation, font-family-name-quotes, property-no-deprecated, custom-property-empty-line-before, declaration-empty-line-before, rule-empty-line-before, comment-empty-line-before, at-rule-empty-line-before, value-keyword-case, declaration-block-no-redundant-longhand-properties, shorthand-property-no-redundant-values, keyframes-name-pattern, length-zero-no-unit, number-max-precision, comment-whitespace-inside, lightness-notation, hue-degree-notation, declaration-property-value-no-unknown, keyframe-block-no-duplicate-selectors, declaration-block-single-line-max-declarations, import-notation, no-empty-source, keyframe-selector-notation, function-url-quotes */
+/* Literal port of the prototype CSS (block-style-spec Appendix A): do not reorder or "fix". */
+/* EDS adaptation (spec 3.2): replaces the prototype .section rule, the only place it had effect */
+.cta-final { padding-top: var(--layout-section-padding); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* L1751 */ .cta-final__balon.flota {
+    animation: balon-flota var(--balon-flota-dur) ease-in-out 2 alternate;
+  }
+  /* L1760 */ .cta-final__balon {
+    animation-delay: calc(var(--balon-flota-dur) / -1.5);
+  }
+}
+/* L2491 */ .cta-final {
+  padding-bottom: 0;
+  overflow: hidden;
+  background-color: var(--color-bg-light);
+  text-align: center;
+}
+/* L2500 */ .cta-final {
+  position: relative;
+  isolation: isolate;
+}
+/* L2505 */ .cta-final__confeti {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: var(--confeti-width);
+  height: auto;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, var(--color-bg-dark) 18%, var(--color-bg-dark) 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, var(--color-bg-dark) 18%, var(--color-bg-dark) 70%, transparent 100%);
+}
+/* L2516 */ .cta-final__confeti--oro {
+  inset-inline-start: calc(-1 * var(--confeti-width) / 2);
+  color: var(--rmw-oro);
+}
+/* L2522 */ .cta-final__confeti--azul {
+  inset-inline-end: calc(-1 * var(--confeti-width) / 2);
+  color: var(--rmw-azul);
+  transform: scaleX(-1);
+}
+/* L2531 */ .confeti {
+  overflow: visible;
+  fill: currentColor;
+  pointer-events: none;
+}
+/* L2537 */ .confeti path {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+/* L2542 */ .confeti g:nth-child(9n + 4) path, .confeti g:nth-child(11n + 7) path {
+  opacity: 0.55;
+  filter: blur(6px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* L2553 */ .confeti[data-confeti-js]:not(.is-cayendo) {
+    visibility: hidden;
+  }
+  /* L2557 */ .confeti[data-confeti-js].is-cayendo path {
+    animation: confeti-cae var(--confeti-pieza-dur, 1.8s) var(--ease-out) var(--confeti-pieza-delay, 0s) both;
+  }
+  /* L2563 */ .cta-final__confeti {
+    --confeti-caida: -2600px;
+  }
+  /* L2566 */ .confeti g:nth-child(3n + 1) path {
+    --confeti-pieza-dur: 1.6s; --confeti-giro: 220deg;  --confeti-lado: 0.06;
+  }
+  /* L2567 */ .confeti g:nth-child(3n + 2) path {
+    --confeti-pieza-dur: 2.2s; --confeti-giro: -300deg; --confeti-lado: -0.08;
+  }
+  /* L2568 */ .confeti g:nth-child(3n)     path {
+    --confeti-pieza-dur: 1.9s; --confeti-giro: 160deg;  --confeti-lado: 0.04;
+  }
+  /* L2569 */ .confeti g:nth-child(5n + 1) path {
+    --confeti-pieza-delay: 0s;
+  }
+  /* L2570 */ .confeti g:nth-child(5n + 2) path {
+    --confeti-pieza-delay: 0.12s;
+  }
+  /* L2571 */ .confeti g:nth-child(5n + 3) path {
+    --confeti-pieza-delay: 0.25s;
+  }
+  /* L2572 */ .confeti g:nth-child(5n + 4) path {
+    --confeti-pieza-delay: 0.38s;
+  }
+  /* L2573 */ .confeti g:nth-child(5n)     path {
+    --confeti-pieza-delay: 0.5s;
+  }
+}
+@media (min-width: 1024px) {
+  /* L2588 */ .cta-final__confeti {
+    width: var(--confeti-width-web);
+  }
+  /* L2592 */ .cta-final__confeti--oro {
+    inset-inline-start: 0;
+  }
+  /* L2596 */ .cta-final__confeti--azul {
+    inset-inline-end: 0;
+  }
+}
+/* L2601 */ .cta-final__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* L2607 */ .cta-final__title {
+  margin-inline: auto;
+}
+/* L2611 */ .cta-final__lead {
+  max-width: calc(var(--measure) / 2);
+  margin-top: var(--spacing-xs);
+}
+/* L2616 */ .cta-final .btn {
+  margin-top: var(--spacing-md);
+}
+/* L2620 */ .cta-final__media {
+  position: relative;
+}
+/* L2625 */ .cta-final__balon {
+  position: absolute;
+  top: 18%;
+  inset-inline-end: var(--spacing-lg);
+  width: var(--spacing-2xl);
+  height: auto;
+  --balon-giro: 10deg;
+  transform: rotate(var(--balon-giro));
+  filter: var(--shadow-recorte);
+  pointer-events: none;
+}
+/* L2637 */ .cta-final__photo {
+  display: block;
+  width: 100%;
+  height: var(--cta-final-photo-height);
+  margin-top: calc(-1 * var(--spacing-md));
+  object-fit: cover;
+  object-position: center 70%;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, var(--color-bg-dark) 35%);
+  mask-image: linear-gradient(to bottom, transparent 0%, var(--color-bg-dark) 35%);
+}
+@media (min-width: 1024px) {
+  /* L2649 */ .cta-final__photo {
+    height: var(--cta-final-photo-height-desktop);
+  }
+}
+/* L2959 */ .cta-final {
+  background-color: transparent;
+  background-image: none;
+}
+/* L2997 */ .cta-final .btn {
+  margin-top: var(--ritmo-contenido);
+}
+/* L3844 */ .cta-final__confeti {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 52%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 38%, transparent 52%);
+}
+/* L2576 */ @keyframes confeti-cae {
+  from {
+    opacity: 0;
+    transform: translate(calc(var(--confeti-caida) * var(--confeti-lado, 0)), var(--confeti-caida)) rotate(var(--confeti-giro, 180deg));
+  }
+  20% {
+    opacity: 1;
+  }
+}
+/* L1745 */ @keyframes balon-flota {
+  from { transform: rotate(var(--balon-giro, 0deg)) translateY(0); }
+  to   { transform: rotate(calc(var(--balon-giro, 0deg) + 8deg)) translateY(calc(-1 * var(--spacing-sm))); }
+}

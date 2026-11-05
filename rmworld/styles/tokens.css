@@ -1,0 +1,179 @@
+/* stylelint-disable selector-class-pattern, media-feature-range-notation, property-no-vendor-prefix, no-descending-specificity, no-duplicate-selectors, color-hex-length, color-function-notation, color-function-alias-notation, alpha-value-notation, font-family-name-quotes, property-no-deprecated, custom-property-empty-line-before, declaration-empty-line-before, rule-empty-line-before, comment-empty-line-before, at-rule-empty-line-before, value-keyword-case, declaration-block-no-redundant-longhand-properties, shorthand-property-no-redundant-values, keyframes-name-pattern, length-zero-no-unit, number-max-precision, comment-whitespace-inside, lightness-notation, hue-degree-notation, declaration-property-value-no-unknown, keyframe-block-no-duplicate-selectors, declaration-block-single-line-max-declarations, import-notation, no-empty-source, keyframe-selector-notation, function-url-quotes */
+/* Literal port of the prototype CSS (block-style-spec Appendix A): do not reorder or "fix". */
+:root {
+
+  /* ═══════════════════════════════════════════════════════
+     Madridistas — Design Tokens
+     Fuente de verdad: Cibeles Design System v4.0
+     Nomenclatura: espejo de las variables de Figma
+     (color/primary → --color-primary). Ver tokens-handoff.md
+     ═══════════════════════════════════════════════════════ */
+
+  /* ─── Color · Primary ────────────────────────────────── */
+  --color-primary:            #3E31FA;
+  --color-primary-dark:       #2115AB;
+  --color-primary-medium:     #8FA0F5;
+  --color-primary-light:      #DEE5FD;
+  --color-primary-bg:         #EEF2FD;
+  --color-secondary:          #8760F6;
+
+  /* ─── Color · Semánticos ─────────────────────────────── */
+  --color-success:            #3D923D;
+  --color-success-light:      #F1F9EA;
+  --color-success-dark:       #026C02;
+  --color-warning:            #EAAC30;
+  --color-danger:             #CA024F;
+  --color-danger-dark:        #9E0038;
+
+  /* ─── Color · Fondos / superficies ───────────────────── */
+  --color-bg-dark:            #0A0A0A;
+  --color-bg-light:           #FFFFFF;
+  --color-surface-offwhite:   #FAFCFF;
+  --color-surface-light:      #F3F5F8;
+  --color-line:               #E1E5EA;
+  --color-off-black:          #14142B;
+
+  /* ─── Color · Texto (sobre claro) ────────────────────── */
+  --color-text-primary:       #0F2145;
+  --color-text-secondary:     #43526E;
+  --color-text-muted:         #5E6A83;
+  --color-text-disabled:      #8C95A6;
+
+  /* Texto · roles */
+  --color-text-title:         var(--color-text-primary);
+  --color-text-subtitle:      #29395A;
+  --color-text-body:          var(--color-text-secondary);
+
+  /* Texto · sobre oscuro (inverse) */
+  --color-text-inverse:         rgba(255, 255, 255, 1);
+  --color-text-inverse-muted:   rgba(255, 255, 255, 0.65);
+  --color-text-inverse-subtle:  rgba(255, 255, 255, 0.45);
+
+  /* ─── Gradients ──────────────────────────────────────── */
+  --gradient-btn-primary:     linear-gradient(4deg, #3E31FA 19%, #8760F6 94%);
+  --gradient-premium:         linear-gradient(135deg, #E4D0AB 0%, #F3F6F9 100%);
+  --gradient-platinum:        linear-gradient(135deg, #636682 0%, #BDBECC 50%, #A8AABD 100%);
+  --gradient-card-dark:       linear-gradient(155deg, #14142B 0%, #0A0A0A 100%); /* fondo dark de cards (flip card, etc.) — reemplaza el navy inventado por el agente */
+
+  /* ─── Spacing · base ×8 ──────────────────────────────── */
+  --spacing-2xs:              4px;
+  --spacing-xs:               8px;
+  --spacing-sm:               12px;
+  --spacing-base:             16px;
+  --spacing-md:               24px;
+  --spacing-lg:               32px;
+  --spacing-xl:               48px;
+  --spacing-2xl:              64px;
+  --spacing-section:          96px;
+  --spacing-3xl:              128px;
+
+  /* ─── Border Radius ──────────────────────────────────── */
+  --radius-sm:                8px;
+  --radius-md:                12px;
+  --radius-lg:                16px;
+  --radius-xl:                20px;
+  --radius-2xl:               24px;
+  --radius-3xl:               32px;
+  --radius-pill:              9999px;
+
+  /* ─── Typography (RM Neue, responsive con clamp) ─────── */
+  --font-family:              'RM Neue', sans-serif;
+
+  /* Display — Bold */
+  --text-display-xl:          clamp(52px, 7vw, 88px);   /* lh 1.0   · tracking -3px   */
+  --text-display-lg:          clamp(40px, 5.5vw, 72px); /* lh 1.08  · tracking -2px   */
+  --text-display-md:          clamp(32px, 4vw, 56px);   /* lh 1.08  · tracking -1px   */
+  --text-display-sm:          clamp(28px, 3vw, 48px);   /* lh 1.15  · tracking -0.5px */
+
+  /* Body / texto */
+  --text-body-lg:             18px;  /* lh 1.65 · Regular/600 */
+  --text-body:                16px;  /* lh 1.65 · Regular     */
+  --text-small:               14px;  /* lh 1.60 · Regular     */
+  --text-caption:             12px;  /* lh 1.50 · Regular     */
+
+  /* ─── Breakpoints ────────────────────────────────────── */
+  --breakpoint-tablet:        768px;   /* Tablet  768–1023 */
+  --breakpoint-desktop:       1024px;  /* Desktop 1024–1439 */
+  --breakpoint-wide:          1440px;  /* Wide    ≥1440 — donde entra el margen 96 */
+
+  /* ─── Grid (columnas · gutter · margin por breakpoint) ─ */
+  --grid-columns-mobile:      4;
+  --grid-columns-tablet:      8;
+  --grid-columns-desktop:     12;
+
+  /* Grid confirmado de Cibeles (27/08/2026), en cuatro escalones para que el margen 64
+     entre a 1024 (container ~897, como su "Tablet 1025") y el 96 a 1440 (container 1248).
+     Header, banners, footer y fondos fotográficos van a ancho completo. */
+  --grid-gutter-mobile:       24px;   /* < 768   */
+  --grid-gutter-tablet:       24px;   /* 768–1023 */
+  --grid-gutter-desktop:      24px;   /* 1024–1439 */
+  --grid-gutter-wide:         32px;   /* ≥ 1440  */
+
+  --grid-margin-mobile:       24px;   /* contenido = ancho − 48  */
+  --grid-margin-tablet:       40px;   /* 768 → 688px de contenido */
+  --grid-margin-desktop:      64px;   /* 1024 → 896px de contenido */
+  --grid-margin-wide:         96px;   /* 1440 → 1248px de contenido */
+
+  /* ═══════════════════════════════════════════════════════
+     BOTONES
+     ═══════════════════════════════════════════════════════ */
+
+  /* Tamaños (altura fija · padding generoso) */
+  --btn-height-sm:            40px;
+  --btn-height-md:            48px;
+  --btn-height-lg:            56px;
+
+  --btn-padding-sm:           10px 20px;
+  --btn-padding-md:           14px 28px;
+  --btn-padding-lg:           16px 36px;
+
+  --btn-radius:               var(--radius-md);   /* 12px */
+  --btn-gap-icon:             8px;                /* separación texto ↔ icono */
+  --btn-font-size:            16px;
+  --btn-font-weight:          600;
+
+  /* Primary — fondo gradiente, texto blanco */
+  --btn-primary-bg:           var(--gradient-btn-primary);
+  --btn-primary-bg-hover:     var(--color-primary);
+  --btn-primary-bg-pressed:   var(--color-primary-dark);
+  --btn-primary-text:         var(--color-text-inverse);
+  --btn-primary-shadow:       0 10px 24px -8px rgba(54, 49, 116, 0.65);
+
+  /* Secondary — outline */
+  --btn-secondary-bg:         transparent;
+  --btn-secondary-bg-hover:   var(--color-primary-bg);
+  --btn-secondary-border:     1.5px solid var(--color-primary);
+  --btn-secondary-text:       var(--color-primary);
+
+  /* Estados compartidos */
+  --btn-focus-ring:           0 0 0 3px var(--color-primary-light);  /* WCAG */
+  --btn-disabled-bg:          var(--color-surface-light);
+  --btn-disabled-text:        var(--color-text-disabled);
+  --btn-disabled-opacity:     0.5;
+  --btn-transition:           all 0.2s ease;
+
+  /* ═══════════════════════════════════════════════════════
+     ESPACIADO DE COMPONENTES (generoso)
+     ═══════════════════════════════════════════════════════ */
+
+  /* Padding interno de tarjetas */
+  --padding-card:             32px;   /* tarjetas estándar */
+  --padding-card-lg:          40px;   /* tarjeta destacada / pricing */
+  --padding-card-compact:     24px;   /* tarjetas densas (FAQ, listas) */
+
+  /* Padding vertical de secciones */
+  --padding-section-mobile:   64px;
+  --padding-section-tablet:   88px;
+  --padding-section-desktop:  120px;  /* aire generoso entre secciones */
+
+  /* Gaps de composición */
+  --gap-cards:                24px;   /* entre tarjetas de una fila */
+  --gap-stack:                20px;   /* entre bloques de texto apilados */
+  --gap-inline:               12px;   /* entre elementos en línea */
+  --gap-list:                 14px;   /* entre ítems de una lista/bullets */
+
+  /* Ritmo tipográfico */
+  --gap-title-body:           16px;   /* título → párrafo */
+  --gap-body-cta:             32px;   /* párrafo → botón */
+  --gap-header-content:       48px;   /* encabezado de sección → contenido */
+}
