@@ -22,13 +22,18 @@ function placeEscudo(nodes) {
     }
     if (node.nodeType !== Node.TEXT_NODE || !node.nodeValue.includes(':escudo:')) return [node];
     const [before, after] = node.nodeValue.split(':escudo:');
-    return [document.createTextNode(before), escudo(), document.createTextNode(after)];
+    // Published, the pipeline drops the space next to the icon span; the prototype has it
+    const left = before && !/\s$/.test(before) ? `${before} ` : before;
+    const right = after && !/^\s/.test(after) ? ` ${after}` : after;
+    return [document.createTextNode(left), escudo(), document.createTextNode(right)];
   });
 }
 
 function buildTitle(source) {
   const title = h('h1', { class: 'hero2__titulo', id: 'hero-titulo' });
   if (!source) return title;
+  // decorateMain leaves the mark as its own text node; join it with the text around it
+  source.normalize();
   const nodes = inlineNodes(source, {
     em: (em) => h('span', { class: 'hero2__save' }, ...inlineNodes(em)),
     strong: (strong) => h('span', { class: 'hero2__junto' }, ...inlineNodes(strong)),
